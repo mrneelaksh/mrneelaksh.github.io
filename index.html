@@ -613,9 +613,9 @@ radial-gradient(ellipse 50% 25% at 64% 91%,transparent 55%,rgba(255,107,44,.045)
 animation:genyoaWaveDrift 10s ease-in-out infinite alternate}
 @keyframes genyoaWaveDrift{from{transform:translate3d(-1.5%,.8%,0) scale(1.06)}to{transform:translate3d(1.5%,-.8%,0) scale(1.1)}}
 .hero-inner{z-index:4}
-.genyoa-type{opacity:0;filter:blur(4px)}
+.genyoa-type{opacity:1;filter:none}.genyoa-type > span{transition:opacity .18s ease,filter .18s ease}
 .genyoa-type.is-ready{opacity:1;filter:none}
-@media(prefers-reduced-motion:reduce){.hero::after{animation:none;opacity:.16}.genyoa-type{opacity:1;filter:none}}
+@media(prefers-reduced-motion:reduce){.hero::after{animation:none;opacity:.16}.genyoa-type{opacity:1;filter:none}.genyoa-type > span{opacity:1!important;filter:none!important}}
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
