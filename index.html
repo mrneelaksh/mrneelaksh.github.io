@@ -753,11 +753,11 @@ animation:genyoaWaveDrift 10s ease-in-out infinite alternate}
 
 .corridor-card {
   position: absolute;
-  left: -9cqw;
-  top: -12.5cqw;
-  width: 18cqw;
-  height: 25cqw;
-  border-radius: 0.8cqw;
+  left: -11.25cqw;
+  top: -15.625cqw;
+  width: 22.5cqw;
+  height: 31.25cqw;
+  border-radius: 1cqw;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.16);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 24px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
@@ -946,6 +946,21 @@ animation:genyoaWaveDrift 10s ease-in-out infinite alternate}
   justify-content: center;
   padding: 0 0 20px;
 }
+.hero-corridor-space {
+  min-height: clamp(140px, 20vh, 220px);
+  width: 100%;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
 
 .stories-kicker {
   font-family: "DM Mono", monospace;
@@ -1057,6 +1072,12 @@ animation:genyoaWaveDrift 10s ease-in-out infinite alternate}
 }
 
 @media (max-width: 640px) {
+  .corridor-card {
+    width: 28cqw;
+    height: 38.8cqw;
+    left: -14cqw;
+    top: -19.4cqw;
+  }
   .nav.cardnav {
     top: 10px;
     padding: 0 12px;
@@ -1193,9 +1214,8 @@ animation:genyoaWaveDrift 10s ease-in-out infinite alternate}
   <!-- Centered Hero Content -->
   <div class="hero-inner corridor-content">
     <span class="stories-kicker">STORIES IN MOTION</span>
-    <h1 class="hero-corridor-title">
-      WE BUILD <em>DIGITAL EXPERIENCES</em>
-    </h1>
+    <h1 class="sr-only">GENYOA DIGITAL — Web Studio & Digital Experiences</h1>
+    <div class="hero-corridor-space" aria-hidden="true"></div>
     <div class="hero-cta-group">
       <a class="hero-pill-btn hero-pill-primary" href="#work">
         <span>Explore the journey</span>
