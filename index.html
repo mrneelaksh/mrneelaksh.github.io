@@ -1133,6 +1133,374 @@ animation:genyoaWaveDrift 10s ease-in-out infinite alternate}
   }
 }
 </style>
+<style>
+/* ==========================================================================
+   05 / WHO WE SERVE — STICKY HORIZONTAL GALLERY
+   ========================================================================== */
+.section-who-we-serve {
+  position: relative;
+  padding: 0 !important;
+  background: var(--bg);
+  overflow: visible;
+}
+
+.industries-pin-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: clamp(24px, 4vh, 48px) 0;
+}
+
+.industries-container {
+  width: min(calc(100% - 48px), var(--max));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  gap: clamp(16px, 2.5vh, 32px);
+}
+
+.industries-head {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-end !important;
+  margin-bottom: clamp(16px, 3vh, 36px) !important;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.industries-head-left {
+  max-width: 680px;
+}
+
+.industries-head-left .section-index {
+  font-family: 'DM Mono', monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.industries-head-left .section-index::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.industries-head-left h2 {
+  font-size: clamp(30px, 4vw, 50px);
+  margin: 0 0 10px;
+  font-family: var(--display), cursive;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.industries-head-left .section-intro {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--hand), cursive;
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.45;
+  max-width: 580px;
+}
+
+.industries-status-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.industries-counter-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #fff;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px 14px;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+.industries-progress-rail {
+  width: 160px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.industries-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 12.5%;
+  background: linear-gradient(90deg, #ff6b2c, #ffa24c);
+  border-radius: 999px;
+  box-shadow: 0 0 10px rgba(255, 107, 44, 0.5);
+  transition: width 0.1s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+.industries-nav-hint {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.industries-nav-hint span.arrow {
+  display: inline-block;
+  color: var(--accent);
+  animation: hintNudge 1.6s ease-in-out infinite;
+}
+
+@keyframes hintNudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
+/* Gallery Viewport & Track */
+.industries-gallery-viewport {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  overflow: hidden;
+  padding: 8px 0 16px;
+}
+
+.industries-gallery-track {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: clamp(18px, 2vw, 28px);
+  width: max-content;
+  padding-left: max(24px, calc((100vw - var(--max)) / 2 + 24px));
+  padding-right: max(60px, 12vw);
+  will-change: transform;
+}
+
+/* Individual Showcase Card */
+.industries-card {
+  width: clamp(310px, 27vw, 410px);
+  min-height: clamp(340px, 46vh, 440px);
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.04) 0%, rgba(18, 19, 25, 0.85) 45%, rgba(10, 11, 15, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 24px;
+  padding: clamp(24px, 3vh, 32px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.35s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease);
+  backdrop-filter: blur(14px);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.industries-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  pointer-events: none;
+}
+
+.industries-card::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px dashed rgba(255, 255, 255, 0.045);
+  border-radius: 17px;
+  pointer-events: none;
+}
+
+.industries-card:hover {
+  border-color: rgba(255, 107, 44, 0.5);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 28px rgba(255, 107, 44, 0.12);
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.06) 0%, rgba(24, 25, 33, 0.9) 45%, rgba(13, 14, 19, 0.98) 100%);
+}
+
+.industries-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.industries-card-ico {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #fff;
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.industries-card:hover .industries-card-ico {
+  transform: scale(1.08);
+  background: rgba(255, 107, 44, 0.12);
+  border-color: rgba(255, 107, 44, 0.35);
+  color: #ff6b2c;
+}
+
+.industries-card-index {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  background: rgba(255, 107, 44, 0.08);
+  border: 1px solid rgba(255, 107, 44, 0.22);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+.industries-card-body {
+  margin: 18px 0 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.industries-card-body h3 {
+  font-family: var(--display), cursive;
+  font-size: clamp(24px, 2.3vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  margin: 0 0 6px;
+  color: #fff;
+  line-height: 1.15;
+}
+
+.industries-card-body .industries-card-tag {
+  font-family: var(--hand), cursive;
+  font-size: 15.5px;
+  color: var(--muted);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.industries-card-body p {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #9ea0aa;
+}
+
+.industries-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.industries-card-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  color: #b0b2bc;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 7px;
+  padding: 4px 9px;
+  transition: border-color 0.25s, color 0.25s;
+}
+
+.industries-card:hover .industries-card-pill {
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #e4e5ec;
+}
+
+.industries-card-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: 14px;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.industries-card-footer .industries-link-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text);
+  transition: color 0.25s, transform 0.25s;
+}
+
+.industries-card:hover .industries-card-footer .industries-link-action {
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+@media (max-width: 860px) {
+  .industries-head {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 16px;
+  }
+  .industries-status-block {
+    align-items: flex-start;
+    width: 100%;
+  }
+  .industries-progress-rail {
+    width: 100%;
+    max-width: 220px;
+  }
+  .industries-card {
+    width: clamp(280px, 78vw, 340px);
+    min-height: 330px;
+    padding: 22px;
+  }
+  .industries-card-body h3 {
+    font-size: 24px;
+  }
+}
+</style>
 </head>
 <body>
 <div class="genyoa-intro" id="genyoaIntro" aria-hidden="true"><canvas id="genyoaWarp"></canvas><div class="genyoa-intro-grid"></div><div class="genyoa-intro-content"><div class="genyoa-intro-kicker">GENYOA DIGITAL / INITIALIZING EXPERIENCE</div><div class="genyoa-word" aria-label="GENYOA"><span class="genyoa-letter">G</span><span class="genyoa-letter">E</span><span class="genyoa-letter">N</span><span class="genyoa-letter">Y</span><span class="genyoa-letter">O</span><span class="genyoa-letter">A</span></div><div class="genyoa-intro-sub">Ideas → Experiences → Digital</div><div class="genyoa-intro-line"></div><div class="genyoa-intro-status">Warp sequence complete / entering home</div></div></div>
@@ -1328,21 +1696,206 @@ animation:genyoaWaveDrift 10s ease-in-out infinite alternate}
   </div>
 </section>
 
-<section class="section" id="industries">
-  <div class="container">
-    <div class="section-head">
-      <div><div class="section-index">05 / WHO WE SERVE</div></div>
-      <div><h2>Different businesses. <span style="font-family:'Patrick Hand',cursive;font-style:normal;font-weight:400">Different stories.</span></h2><p class="section-intro">The system adapts to the brand, customer and business model rather than forcing everything into the same template.</p></div>
-    </div>
-    <div class="industries">
-      <article class="industry"><div class="ico">◼</div><div><h3>Businesses</h3><p>Local businesses and growing companies.</p></div></article>
-      <article class="industry"><div class="ico">✦</div><div><h3>Startups</h3><p>Launch pages and product experiences.</p></div></article>
-      <article class="industry"><div class="ico">↗</div><div><h3>Entrepreneurs</h3><p>Personal and business brand presence.</p></div></article>
-      <article class="industry"><div class="ico">◌</div><div><h3>Restaurants &amp; Cafés</h3><p>Websites, menus and QR experiences.</p></div></article>
-      <article class="industry"><div class="ico">⌂</div><div><h3>Hotels &amp; Hospitality</h3><p>Booking-focused digital experiences.</p></div></article>
-      <article class="industry"><div class="ico">✈</div><div><h3>Travel</h3><p>Tour, travel and destination brands.</p></div></article>
-      <article class="industry"><div class="ico">✎</div><div><h3>Creators</h3><p>Portfolio and personal-brand sites.</p></div></article>
-      <article class="industry"><div class="ico">AI</div><div><h3>AI Products</h3><p>Interfaces with intelligent functionality.</p></div></article>
+<section class="section section-who-we-serve" id="industries">
+  <div class="industries-pin-wrap" id="industriesPin">
+    <div class="container industries-container">
+      <div class="section-head industries-head">
+        <div class="industries-head-left">
+          <div class="section-index">05 / WHO WE SERVE</div>
+          <h2>Different businesses. <span style="font-family:'Patrick Hand',cursive;font-style:normal;font-weight:400">Different stories.</span></h2>
+          <p class="section-intro">The system adapts to the brand, customer and business model rather than forcing everything into the same template.</p>
+        </div>
+        <div class="industries-status-block" aria-label="Gallery Scroll Status">
+          <div class="industries-counter-badge" id="industriesProgressCount">01 / 08</div>
+          <div class="industries-progress-rail">
+            <div class="industries-progress-fill" id="industriesProgressBar"></div>
+          </div>
+          <div class="industries-nav-hint">
+            <span>SCROLL HORIZONTALLY</span>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="industries-gallery-viewport">
+        <div class="industries-gallery-track" id="industriesTrack">
+          <!-- Card 01: Businesses -->
+          <article class="industries-card" data-index="1">
+            <div class="industries-card-top">
+              <div class="industries-card-ico">◼</div>
+              <span class="industries-card-index">01 / 08</span>
+            </div>
+            <div class="industries-card-body">
+              <h3>Businesses</h3>
+              <span class="industries-card-tag">Local Brands &amp; Enterprises</span>
+              <p>Local businesses and growing companies requiring authoritative digital touchpoints, high conversion rates, and reliable architecture.</p>
+              <div class="industries-card-tags">
+                <span class="industries-card-pill">Lead Generation</span>
+                <span class="industries-card-pill">Brand Authority</span>
+                <span class="industries-card-pill">Tailored UX</span>
+              </div>
+            </div>
+            <div class="industries-card-footer">
+              <span>Tailored Experience</span>
+              <a href="#contact" class="industries-link-action">Explore <span>↗</span></a>
+            </div>
+          </article>
+
+          <!-- Card 02: Startups -->
+          <article class="industries-card" data-index="2">
+            <div class="industries-card-top">
+              <div class="industries-card-ico">✦</div>
+              <span class="industries-card-index">02 / 08</span>
+            </div>
+            <div class="industries-card-body">
+              <h3>Startups</h3>
+              <span class="industries-card-tag">Launch Pages &amp; MVPs</span>
+              <p>Launch pages and product experiences engineered to captivate early adopters, validate product concepts, and build investor conviction.</p>
+              <div class="industries-card-tags">
+                <span class="industries-card-pill">Pitch Ready</span>
+                <span class="industries-card-pill">Interactive Motion</span>
+                <span class="industries-card-pill">Fast MVP</span>
+              </div>
+            </div>
+            <div class="industries-card-footer">
+              <span>Launch Ready</span>
+              <a href="#contact" class="industries-link-action">Explore <span>↗</span></a>
+            </div>
+          </article>
+
+          <!-- Card 03: Entrepreneurs -->
+          <article class="industries-card" data-index="3">
+            <div class="industries-card-top">
+              <div class="industries-card-ico">↗</div>
+              <span class="industries-card-index">03 / 08</span>
+            </div>
+            <div class="industries-card-body">
+              <h3>Entrepreneurs</h3>
+              <span class="industries-card-tag">Executive &amp; Personal Brand</span>
+              <p>Distinguished personal brand hubs that reflect individual mastery, thought leadership, speaking portfolios, and strategic advisory offerings.</p>
+              <div class="industries-card-tags">
+                <span class="industries-card-pill">Personal Brand</span>
+                <span class="industries-card-pill">Thought Leadership</span>
+                <span class="industries-card-pill">Authority Hub</span>
+              </div>
+            </div>
+            <div class="industries-card-footer">
+              <span>Personal Brand</span>
+              <a href="#contact" class="industries-link-action">Explore <span>↗</span></a>
+            </div>
+          </article>
+
+          <!-- Card 04: Restaurants & Cafés -->
+          <article class="industries-card" data-index="4">
+            <div class="industries-card-top">
+              <div class="industries-card-ico">◌</div>
+              <span class="industries-card-index">04 / 08</span>
+            </div>
+            <div class="industries-card-body">
+              <h3>Restaurants &amp; Cafés</h3>
+              <span class="industries-card-tag">Hospitality &amp; QR Systems</span>
+              <p>Atmospheric digital menu experiences, scan-to-view QR interfaces, and reservation flows designed to showcase culinary craft.</p>
+              <div class="industries-card-tags">
+                <span class="industries-card-pill">Instant QR Menus</span>
+                <span class="industries-card-pill">Sensory Aesthetic</span>
+                <span class="industries-card-pill">Zero-Lag UX</span>
+              </div>
+            </div>
+            <div class="industries-card-footer">
+              <span>Hospitality Tech</span>
+              <a href="#contact" class="industries-link-action">Explore <span>↗</span></a>
+            </div>
+          </article>
+
+          <!-- Card 05: Hotels & Hospitality -->
+          <article class="industries-card" data-index="5">
+            <div class="industries-card-top">
+              <div class="industries-card-ico">⌂</div>
+              <span class="industries-card-index">05 / 08</span>
+            </div>
+            <div class="industries-card-body">
+              <h3>Hotels &amp; Hospitality</h3>
+              <span class="industries-card-tag">Stays &amp; Boutique Escapes</span>
+              <p>Immersive booking-focused showcases highlighting architectural character, room amenities, and seamless reservation journeys.</p>
+              <div class="industries-card-tags">
+                <span class="industries-card-pill">Direct Bookings</span>
+                <span class="industries-card-pill">Suite Galleries</span>
+                <span class="industries-card-pill">Boutique Feel</span>
+              </div>
+            </div>
+            <div class="industries-card-footer">
+              <span>Guest Journeys</span>
+              <a href="#contact" class="industries-link-action">Explore <span>↗</span></a>
+            </div>
+          </article>
+
+          <!-- Card 06: Travel -->
+          <article class="industries-card" data-index="6">
+            <div class="industries-card-top">
+              <div class="industries-card-ico">✈</div>
+              <span class="industries-card-index">06 / 08</span>
+            </div>
+            <div class="industries-card-body">
+              <h3>Travel</h3>
+              <span class="industries-card-tag">Expeditions &amp; Destinations</span>
+              <p>Vibrant destination storytelling with custom itineraries, interactive tour highlights, and effortless inquiry funnels.</p>
+              <div class="industries-card-tags">
+                <span class="industries-card-pill">Tour Showcases</span>
+                <span class="industries-card-pill">Custom Itineraries</span>
+                <span class="industries-card-pill">Inquiry Funnels</span>
+              </div>
+            </div>
+            <div class="industries-card-footer">
+              <span>Destination Story</span>
+              <a href="#contact" class="industries-link-action">Explore <span>↗</span></a>
+            </div>
+          </article>
+
+          <!-- Card 07: Creators -->
+          <article class="industries-card" data-index="7">
+            <div class="industries-card-top">
+              <div class="industries-card-ico">✎</div>
+              <span class="industries-card-index">07 / 08</span>
+            </div>
+            <div class="industries-card-body">
+              <h3>Creators</h3>
+              <span class="industries-card-tag">Portfolios &amp; Studios</span>
+              <p>Expressive portfolio platforms built for directors, designers, writers, and visual artists demanding distinct, non-template layouts.</p>
+              <div class="industries-card-tags">
+                <span class="industries-card-pill">Custom Layouts</span>
+                <span class="industries-card-pill">Media Rich</span>
+                <span class="industries-card-pill">Audience Growth</span>
+              </div>
+            </div>
+            <div class="industries-card-footer">
+              <span>Creative Craft</span>
+              <a href="#contact" class="industries-link-action">Explore <span>↗</span></a>
+            </div>
+          </article>
+
+          <!-- Card 08: AI Products -->
+          <article class="industries-card" data-index="8">
+            <div class="industries-card-top">
+              <div class="industries-card-ico">AI</div>
+              <span class="industries-card-index">08 / 08</span>
+            </div>
+            <div class="industries-card-body">
+              <h3>AI Products</h3>
+              <span class="industries-card-tag">Intelligent Systems &amp; SaaS</span>
+              <p>Cutting-edge web interfaces for next-gen AI applications, LLM workflows, and developer tools translating deep tech into intuitive UX.</p>
+              <div class="industries-card-tags">
+                <span class="industries-card-pill">Dynamic AI UI</span>
+                <span class="industries-card-pill">Real-Time UX</span>
+                <span class="industries-card-pill">Modern SaaS</span>
+              </div>
+            </div>
+            <div class="industries-card-footer">
+              <span>Intelligent Tech</span>
+              <a href="#contact" class="industries-link-action">Explore <span>↗</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -2192,6 +2745,142 @@ if (corridorBtn && heroEl) {
   });
 }
 </script>
+
+<!-- GSAP & ScrollTrigger Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<script>
+/**
+ * 05 / WHO WE SERVE — ROBUST HORIZONTAL GALLERY SCROLLTRIGGER INITIALIZATION
+ * Technical Requirement:
+ * - GSAP ScrollTrigger pinning logic that locks vertical scroll and slides content horizontally.
+ * - Robust initialization including a DOM render & layout safety delay (matching React useLayoutEffect pattern)
+ *   to ensure accurate width measurements before pinning calculations.
+ */
+(function() {
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function initWhoWeServeGallery() {
+    if (!window.gsap || !window.ScrollTrigger) {
+      setTimeout(initWhoWeServeGallery, 50);
+      return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const section = document.getElementById('industries');
+    const pinWrap = document.getElementById('industriesPin');
+    const track = document.getElementById('industriesTrack');
+    const progressBar = document.getElementById('industriesProgressBar');
+    const progressCount = document.getElementById('industriesProgressCount');
+
+    if (!section || !pinWrap || !track) return;
+
+    // Safety check: ensure DOM is fully rendered and track width is computed
+    const trackScrollWidth = track.scrollWidth;
+    const viewportWidth = window.innerWidth;
+
+    if (trackScrollWidth <= viewportWidth && document.readyState !== 'complete') {
+      window.addEventListener('load', () => setTimeout(initWhoWeServeGallery, 80), { once: true });
+      return;
+    }
+
+    if (prefersReduced) {
+      track.style.overflowX = 'auto';
+      return;
+    }
+
+    // Kill any existing trigger for clean re-initialization
+    const oldTrigger = ScrollTrigger.getById('whoWeServePinTrigger');
+    if (oldTrigger) oldTrigger.kill();
+
+    // Compute dynamic horizontal distance with right padding buffer
+    const getScrollDistance = () => {
+      const paddingBuffer = Math.max(60, Math.min(140, window.innerWidth * 0.1));
+      return Math.max(0, track.scrollWidth - window.innerWidth + paddingBuffer);
+    };
+
+    const cards = Array.from(track.querySelectorAll('.industries-card'));
+
+    // Create horizontal scroll tween with ScrollTrigger pinning
+    const galleryTween = gsap.to(track, {
+      x: () => -getScrollDistance(),
+      ease: 'none',
+      scrollTrigger: {
+        id: 'whoWeServePinTrigger',
+        trigger: section,
+        start: 'top top',
+        end: () => `+=${getScrollDistance() + window.innerHeight * 0.75}`,
+        pin: pinWrap,
+        anticipatePin: 1,
+        scrub: 0.8,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          if (progressBar) {
+            progressBar.style.width = `${Math.min(100, Math.max(8, progress * 100)).toFixed(1)}%`;
+          }
+          if (progressCount && cards.length > 0) {
+            const activeIndex = Math.min(cards.length, Math.floor(progress * cards.length) + 1);
+            progressCount.textContent = `0${activeIndex} / 0${cards.length}`;
+          }
+
+          // Subtle focal highlighting for cards near viewport center
+          const vCenter = window.innerWidth / 2;
+          cards.forEach((card) => {
+            const rect = card.getBoundingClientRect();
+            const cardCenter = rect.left + rect.width / 2;
+            const dist = Math.abs(vCenter - cardCenter);
+            const radius = window.innerWidth * 0.45;
+            if (dist < radius) {
+              const factor = 1 - dist / radius;
+              card.style.borderColor = `rgba(255, 107, 44, ${0.15 + factor * 0.35})`;
+            } else {
+              card.style.borderColor = 'rgba(255, 255, 255, 0.11)';
+            }
+          });
+        }
+      }
+    });
+
+    // Technical Requirement: Safety delay check inside layout effect
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
+    });
+  }
+
+  // Double safety initialization: DOM ready + Window load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(initWhoWeServeGallery, 100);
+    });
+  } else {
+    setTimeout(initWhoWeServeGallery, 100);
+  }
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      if (window.ScrollTrigger) ScrollTrigger.refresh();
+    }, 200);
+  });
+
+  // Handle resize debouncing
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (window.ScrollTrigger) ScrollTrigger.refresh();
+    }, 150);
+  });
+
+  // Global export for React component useLayoutEffect lifecycle integration
+  window.initWhoWeServeGallery = initWhoWeServeGallery;
+})();
+</script>
+
 </body>
 </html>
 
